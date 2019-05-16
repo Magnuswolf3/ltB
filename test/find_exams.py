@@ -6,12 +6,12 @@ import re
 """
 getCourse returns the course name in the specified line of given data
 
-:return: c_name
+:return: l_name, c_name
 :param: line
 """
 def getCourse(line):
-    lname, c_name = line.rstrip().split("/")    ##EE1 Doesn't need to set that value to both c_name and l_name
-    return c_name   ##EE2 Doesn't need to return l_name, c_name has all the information
+    lname, c_name = line.rstrip().split("/")    ##EE1 Used wrong character for split, uses "/" in test csv
+    return lname, c_name   ##EE2 Should return lname first
 
 
 """
