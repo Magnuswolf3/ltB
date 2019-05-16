@@ -23,6 +23,9 @@ class TestExclude(unittest.TestCase):
     ##    timetable = find_exams.getTimeTable(courses, exams)
     ##    self.assertEqual(timetable, "NotSure")
 
+    ##def test_showTimeTable(self):
+    ## Not Sure
+
 
 
 
