@@ -4,18 +4,18 @@ import sys
 import re
 
 """
-getCourse returns the course of the in the specified line of given data
+getCourse returns the course name in the specified line of given data
 
 :return: c_name, l_name
 :param: line
 """
 def getCourse(line):
-    l_name, c_name = line.rstrip().split(",")    ##EE1
-    return c_name, l_name   #EE2
+    c_name = line.rstrip().split(",")    ##EE1 Doesn't need to set that value to both c_name and l_name
+    return c_name   ##EE2 Doesn't need to return l_name, c_name has all the information
 
 
 """
-getCoursesForLects returns the Courses with the specified Lectures
+getCoursesForLects returns the Courses with the specified Lecturers
 
 :return: courses
 :param: lectfn
@@ -26,7 +26,7 @@ def getCoursesForLects(lectsfn):
     for line in lf:
         lect, course = getCourse(line)
         if lect in courses: # is the lecturer in the dictionary
-            courses[lect].append(lect)  # add course to the list ##EE3
+            courses[lect].append(course)  # add course to the list ##EE3 Needs to add the course to the list not the lecturer
         else:
             courses[lect] = [course]  
     lf.close()
