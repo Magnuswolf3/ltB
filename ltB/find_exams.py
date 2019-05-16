@@ -3,11 +3,23 @@
 import sys
 import re
 
+"""
+getCourse returns the course of the in the specified line of given data
 
+:return: c_name, l_name
+:param: line
+"""
 def getCourse(line):
     l_name, c_name = line.rstrip().split(",")    ##EE1
     return c_name, l_name   #EE2
 
+
+"""
+getCoursesForLects returns the Courses with the specified Lectures
+
+:return: courses
+:param: lectfn
+"""
 def getCoursesForLects(lectsfn):
     courses = {}  # dictionary: for each lect returns list of courses
     lf = open(lectsfn)
@@ -20,6 +32,13 @@ def getCoursesForLects(lectsfn):
     lf.close()
     return courses
 
+
+"""
+getExams returns the list of exams for the specified examfname
+
+:return: exams
+:param: examfname
+"""
 def getExams(examfname):
     exams = {}
     for line in open(examfname):
@@ -27,6 +46,13 @@ def getExams(examfname):
         exams[data[0]]=(data[1],data[2])
     return exams
 
+
+"""
+getTimeTable returns a nested list of ttable for the specified courses and exams
+
+:return: ttable
+:param: courses, exams
+"""
 def getTimeTable(courses,exams):
     ttable = []  # nested list -- for each lect a list of exams
     for lect in sorted(courses.keys()):
@@ -41,6 +67,13 @@ def getTimeTable(courses,exams):
         ttable.append((lect,l_exams)) # now we know the exams add it list
     return ttable
 
+
+"""
+showTimeTable prints the specified timetable to the terminal
+
+:return: returns nothing
+:param: ttable
+"""
 def showTimeTable(ttable):
     for (lect, l_exams) in ttable:
         print(lect)
